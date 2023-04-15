@@ -13,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="CharacterViewController" id="v8I-EQ-k4H" customClass="CharacterViewController" customModule="rickandmorty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wX1-Rz-78p">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iIv-wJ-YpW">
-                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -62,7 +62,7 @@
                     </view>
                     <connections>
                         <outlet property="splashImage" destination="0Jp-AZ-uQy" id="trx-fy-kjX"/>
-                        <segue destination="v8I-EQ-k4H" kind="show" identifier="FROM_SPLASH_TO_MAIN" id="5yQ-m0-l66"/>
+                        <segue destination="v8I-EQ-k4H" kind="presentation" identifier="FROM_SPLASH_TO_MAIN" modalPresentationStyle="fullScreen" id="9hy-Ks-cvK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8r5-fy-WVv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

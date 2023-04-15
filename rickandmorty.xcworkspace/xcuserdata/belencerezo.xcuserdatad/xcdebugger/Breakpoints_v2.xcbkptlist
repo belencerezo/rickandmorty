@@ -7,86 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D30671A9-EAEF-438E-9D78-BC78D3AFD59B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "rickandmorty/Network/NetworkManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "ApiService"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "95128DD8-7D77-433F-B57C-EC029A18411C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "rickandmorty/Network/NetworkManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "ApiService"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BEC6C967-CC3C-4EDB-B7AC-02E903FB1DD5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "rickandmorty/Network/NetworkManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "ApiService"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "BEC6C967-CC3C-4EDB-B7AC-02E903FB1DD5 - eaed6e1058ec0896"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "rickandmorty.NetworkManager.fetchAllCharacters() -&gt; ()"
-                  moduleName = "rickandmorty"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/belencerezo/rickandmorty/rickandmorty/Network/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "168">
-               </Location>
-               <Location
-                  uuid = "BEC6C967-CC3C-4EDB-B7AC-02E903FB1DD5 - 579d0a19099253a4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.Optional&lt;Foundation.Data&gt;, Alamofire.AFError&gt;) -&gt; () in rickandmorty.NetworkManager.fetchAllCharacters() -&gt; ()"
-                  moduleName = "rickandmorty"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/belencerezo/rickandmorty/rickandmorty/Network/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "264">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "87FD4988-1B6C-4207-81DE-3B44C2D2D09D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -190,8 +110,8 @@
             filePath = "rickandmorty/View/CharacterList/Cell/CharacterTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "configureCell(character:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -206,8 +126,8 @@
             filePath = "rickandmorty/View/CharacterList/Cell/CharacterTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "configureCell(character:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -222,8 +142,8 @@
             filePath = "rickandmorty/View/CharacterList/Cell/CharacterTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "configureCell(character:)"
             landmarkType = "7">
          </BreakpointContent>

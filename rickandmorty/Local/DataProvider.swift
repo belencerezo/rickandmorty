@@ -43,12 +43,37 @@ class DataProvider {
                         return
                     }
                     self?.defaultCharacter.append(character)
+                    self?.saveCharacters()
                     
                 case .failure(_):
                     break
                 }
                 
                 self?.loadCharacterCount += 1
+            }
+        }
+    }
+    
+    //************* SAVE CHARACTERS TO CORE DATA ****************
+    
+    private func saveCharacters() {
+            let context = CoreDataStack.shared.persistentContainer.viewContext
+            context.perform {
+                do {
+                    for character in self.defaultCharacter {
+                        let entity = CharacterEntity(context: context)
+                        entity.id = Int32(character.id ?? 0)
+                        entity.name = character.name
+                        entity.status = character.status
+                        entity.species = character.species
+                        entity.type = character.type
+                        entity.gender = character.gender
+                        entity.image = character.image
+                    }
+                    
+                    try context.save()
+                } catch {
+                    print("Error saving characters to Core Data: \(error.localizedDescription)")
             }
         }
     }

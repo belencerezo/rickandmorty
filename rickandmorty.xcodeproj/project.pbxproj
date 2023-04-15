@@ -21,6 +21,8 @@
 		ED9AD63E29EAA74A00F99832 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9AD63D29EAA74900F99832 /* CharacterListViewModel.swift */; };
 		ED9AD64129EAB34400F99832 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9AD64029EAB34400F99832 /* DataProvider.swift */; };
 		ED9AD64529EABABB00F99832 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9AD64429EABABB00F99832 /* SplashViewController.swift */; };
+		ED9AD64A29EACC1F00F99832 /* CoreDataCharacter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED9AD64829EACC1F00F99832 /* CoreDataCharacter.xcdatamodeld */; };
+		ED9AD64C29EACD8500F99832 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9AD64B29EACD8500F99832 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		ED9AD63D29EAA74900F99832 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
 		ED9AD64029EAB34400F99832 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		ED9AD64429EABABB00F99832 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		ED9AD64929EACC1F00F99832 /* CoreDataCharacter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataCharacter.xcdatamodel; sourceTree = "<group>"; };
+		ED9AD64B29EACD8500F99832 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FD018E241D763BBA61200852 /* Pods-rickandmorty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rickandmorty.release.xcconfig"; path = "Target Support Files/Pods-rickandmorty/Pods-rickandmorty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				ED9AD64029EAB34400F99832 /* DataProvider.swift */,
+				ED9AD64829EACC1F00F99832 /* CoreDataCharacter.xcdatamodeld */,
+				ED9AD64B29EACD8500F99832 /* CoreDataStack.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -282,6 +288,8 @@
 				ED9AD64529EABABB00F99832 /* SplashViewController.swift in Sources */,
 				ED0C7CB829EA60DB009D2AA3 /* AppDelegate.swift in Sources */,
 				ED9AD63E29EAA74A00F99832 /* CharacterListViewModel.swift in Sources */,
+				ED9AD64C29EACD8500F99832 /* CoreDataStack.swift in Sources */,
+				ED9AD64A29EACC1F00F99832 /* CoreDataCharacter.xcdatamodeld in Sources */,
 				ED0C7CD229EA634F009D2AA3 /* NetworkManager.swift in Sources */,
 				ED0C7CBA29EA60DB009D2AA3 /* SceneDelegate.swift in Sources */,
 				ED0C7CCF29EA629B009D2AA3 /* Character.swift in Sources */,
@@ -502,6 +510,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ED9AD64829EACC1F00F99832 /* CoreDataCharacter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ED9AD64929EACC1F00F99832 /* CoreDataCharacter.xcdatamodel */,
+			);
+			currentVersion = ED9AD64929EACC1F00F99832 /* CoreDataCharacter.xcdatamodel */;
+			path = CoreDataCharacter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ED0C7CAC29EA60DB009D2AA3 /* Project object */;
 }

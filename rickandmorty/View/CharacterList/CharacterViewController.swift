@@ -17,8 +17,8 @@ class CharacterViewController: UIViewController, CharacterListViewModelDelegate 
         tableView.delegate = self
         tableView.dataSource = self
         viewModel = CharacterListViewModel(delegate: self)
-        viewModel?.getCharacter()
         tableView.register(UINib(nibName: "CharacterTableViewCell", bundle: nil), forCellReuseIdentifier: "CharacterTableViewCell")
+        viewModel?.viewDidLoad()
     }
     
     func characterListViewModelDelegateRefresh() {
@@ -39,6 +39,14 @@ extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let character = self.viewModel?.objectAt(indexPath: indexPath) {
+                viewModel?.deleteCharacter(character)
+            }
+        }
     }
 }
 

@@ -6,35 +6,62 @@
 //
 
 import Foundation
-
-protocol CharacterListViewModelDelegate: AnyObject {
-    func characterListViewModelDelegateRefresh()
-}
+import CoreData
 
 class CharacterListViewModel: NSObject {
     var dataSource: [AnyObject] = []
-    weak var delegate: CharacterListViewModelDelegate?
-    var characters: [Character] = []
+    var delegate: CharacterListViewModelDelegate?
+    
+    private  var characters: [CharacterEntity] = []
+    private let context = CoreDataStack.shared.persistentContainer.viewContext
     
     init(delegate: CharacterListViewModelDelegate) {
         super.init()
         self.delegate = delegate
     }
     
+    func viewDidLoad() {
+        characters = getCharacters()
+    }
+    
     func refreshNetworkData() {
-        self.characters = DataProvider.shared.defaultCharacter
+        //self.characters = DataProvider.shared.defaultCharacter
         self.delegate?.characterListViewModelDelegateRefresh()
     }
     
-    func getCharacter() {
-        characters = DataProvider.shared.defaultCharacter.sorted {($0.name ?? "") < ($1.name ?? "")}
+    func deleteCharacter(_ characterEntity: CharacterEntity) {
+        context.delete(characterEntity)
+        saveContext()
+        characters = getCharacters()
+        self.delegate?.characterListViewModelDelegateRefresh()
+    }
+    
+    func getCharacters() -> [CharacterEntity] {
+        //characters = DataProvider.shared.defaultCharacter.sorted {($0.name ?? "") < ($1.name ?? "")}
+        let fetchRequest = NSFetchRequest<CharacterEntity>(entityName: "CharacterEntity")
+        do {
+            characters = try context.fetch(fetchRequest)
+            
+        } catch {
+            print("Error fetching characters: \(error.localizedDescription)")
+            
+        }
+        return characters
+    }
+    
+    private func saveContext() {
+        do {
+            try context.save()
+        } catch {
+            print("Error saving context: \(error.localizedDescription)")
+        }
     }
 
     func numberOfRowsInSection() -> Int {
         return characters.count
     }
     
-    func objectAt(indexPath: IndexPath) -> Character? {
+    func objectAt(indexPath: IndexPath) -> CharacterEntity? {
         if characters.count > indexPath.row {
             return characters[indexPath.row]
         }

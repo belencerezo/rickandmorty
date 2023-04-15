@@ -18,7 +18,7 @@ class CharacterTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configureCell(character: Character) {
+    func configureCell(character: CharacterEntity) {
         characterImageView.kf.setImage(with: URL(string: character.image ?? ""))
         characterName.text = character.name
         characterGender.text = character.gender

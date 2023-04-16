@@ -12,24 +12,26 @@ class CharacterDetailsViewController: UIViewController {
     
     @IBOutlet weak var imageCharacter: UIImageView!
     @IBOutlet weak var nameCharacter: UILabel!
-    @IBOutlet weak var genderCharacter: UILabel!
-    @IBOutlet weak var statusCharacter: UILabel!
-    @IBOutlet weak var speciesCharacter: UILabel!
-    @IBOutlet weak var typeCharacter: UILabel!
+    @IBOutlet weak var genderCharacter: UITextField!
+    @IBOutlet weak var statusCharacter: UITextField!
+    @IBOutlet weak var speciesCharacter: UITextField!
+    @IBOutlet weak var typeCharacter: UITextField!
     @IBOutlet weak var characterDetailsView: UIView!
     
     
     // MARK: - Properties
     var character: CharacterEntity?
+    private var viewModel = CharacterDetailsViewModel()
+    weak var delegate: CharacterDetailsViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureView()
+        viewModel.configureImageView(mainImage: imageCharacter)
     }
     
     func configureView() {
         if let character = character {
-            imageCharacter.layer.cornerRadius = imageCharacter.frame.height / 2
             imageCharacter.kf.setImage(with: URL(string: character.image ?? ""))
             nameCharacter.text = character.name
             genderCharacter.text = character.gender
@@ -37,5 +39,27 @@ class CharacterDetailsViewController: UIViewController {
             speciesCharacter.text = character.species
             typeCharacter.text = character.type
         }
+    }
+    
+    @IBAction func typeTextFieldDidChange(_ sender: UITextField) {
+        switch sender {
+        case genderCharacter:
+            character?.gender = sender.text ?? ""
+        case statusCharacter:
+            character?.status = sender.text ?? ""
+        case speciesCharacter:
+            character?.species = sender.text ?? ""
+        case typeCharacter:
+            character?.type = sender.text ?? ""
+        default:
+            break
+        }
+        
+        // Guarda los cambios en CoreData
+        viewModel.saveChanges()
+        delegate?.characterDetailsViewControllerDidUpdateCharacter(self)
+        
+        // Actualiza la vista
+        configureView()
     }
 }

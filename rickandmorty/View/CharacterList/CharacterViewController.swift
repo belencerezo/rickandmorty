@@ -48,5 +48,31 @@ extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showCharacterDetails(forRow: indexPath.row)
+    }
+}
+
+extension CharacterViewController {
+    func showCharacterDetails(forRow row: Int) {
+//        let detailViewController = CharacterDetailsViewController()
+//        let navigationController = UINavigationController(rootViewController: detailViewController)
+//        navigationController.modalPresentationStyle = .fullScreen
+//
+//        // Obtener el personaje seleccionado
+//        let selectedCharacter = viewModel?.getCharactersList()[row]
+//
+//        // Configurar los datos del personaje seleccionado
+//        detailViewController.character = selectedCharacter
+//
+        //        present(navigationController, animated: true, completion: nil)
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CharacterDetailsViewController") as? CharacterDetailsViewController {
+            let selectedCharacter = viewModel?.getCharactersList()[row]
+            
+            vc.character = selectedCharacter
+            self.present(vc, animated: true)
+        }
+    }
 }
 

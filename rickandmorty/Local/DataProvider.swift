@@ -25,7 +25,9 @@ class DataProvider {
     
     //************* LOAD JSON DATA ****************
     
+    //Creamos un maximo de character
     private let characterMaxCount = 100
+    //Analizamos por que numero de character va la lista
     var loadCharacterObserver: ((_ progress: Float) -> ())? = nil
     var loadCharacterCount = 0 {
             didSet {
@@ -42,6 +44,7 @@ class DataProvider {
                           !(character.id == nil) else {
                         return
                     }
+                    // Añadimos los characters a la lista y los guardamos en CoreData
                     self?.defaultCharacter.append(character)
                     self?.saveCharacters()
                     
@@ -49,6 +52,7 @@ class DataProvider {
                     break
                 }
                 
+                //Añadimos uno mas en la lista para saber cuantos hemos guardado
                 self?.loadCharacterCount += 1
             }
         }

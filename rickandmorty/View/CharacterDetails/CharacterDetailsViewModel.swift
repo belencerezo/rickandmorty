@@ -13,7 +13,6 @@ class CharacterDetailsViewModel {
     private let context = CoreDataStack.shared.persistentContainer.viewContext
     
     // MARK: - Methods
-    
     func saveChanges() {
         do {
             try context.save()

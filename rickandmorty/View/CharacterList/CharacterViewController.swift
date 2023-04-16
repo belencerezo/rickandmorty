@@ -9,9 +9,13 @@ import UIKit
 
 class CharacterViewController: UIViewController, CharacterListViewModelDelegate {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Properties
     var viewModel: CharacterListViewModel?
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -21,11 +25,13 @@ class CharacterViewController: UIViewController, CharacterListViewModelDelegate 
         viewModel?.viewDidLoad()
     }
     
+    // MARK: - CharacterListViewModelDelegate
     func characterListViewModelDelegateRefresh() {
         tableView.reloadData()
     }
-    
 }
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.numberOfRowsInSection() ?? 0
@@ -54,6 +60,7 @@ extension CharacterViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - Navigation
 extension CharacterViewController {
     func showCharacterDetails(forRow row: Int) {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CharacterDetailsViewController") as? CharacterDetailsViewController {
@@ -65,10 +72,9 @@ extension CharacterViewController {
     }
 }
 
+// MARK: - CharacterDetailsViewControllerDelegate
 extension CharacterViewController: CharacterDetailsViewControllerDelegate {
     func characterDetailsViewControllerDidUpdateCharacter(_ viewController: CharacterDetailsViewController) {
         characterListViewModelDelegateRefresh()
     }
 }
-
-

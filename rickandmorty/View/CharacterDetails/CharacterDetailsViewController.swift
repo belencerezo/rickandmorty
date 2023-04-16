@@ -10,6 +10,7 @@ import Kingfisher
 
 class CharacterDetailsViewController: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var imageCharacter: UIImageView!
     @IBOutlet weak var nameCharacter: UILabel!
     @IBOutlet weak var genderCharacter: UITextField!
@@ -18,18 +19,19 @@ class CharacterDetailsViewController: UIViewController {
     @IBOutlet weak var typeCharacter: UITextField!
     @IBOutlet weak var characterDetailsView: UIView!
     
-    
     // MARK: - Properties
     var character: CharacterEntity?
     private var viewModel = CharacterDetailsViewModel()
     weak var delegate: CharacterDetailsViewControllerDelegate?
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureView()
         viewModel.configureImageView(mainImage: imageCharacter)
     }
     
+    // MARK: - Private Functions
     func configureView() {
         if let character = character {
             imageCharacter.kf.setImage(with: URL(string: character.image ?? ""))
@@ -41,6 +43,7 @@ class CharacterDetailsViewController: UIViewController {
         }
     }
     
+    // MARK: - IBActions
     @IBAction func typeTextFieldDidChange(_ sender: UITextField) {
         switch sender {
         case genderCharacter:
@@ -54,7 +57,6 @@ class CharacterDetailsViewController: UIViewController {
         default:
             break
         }
-        
         // Guarda los cambios en CoreData
         viewModel.saveChanges()
         delegate?.characterDetailsViewControllerDidUpdateCharacter(self)

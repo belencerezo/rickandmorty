@@ -8,16 +8,14 @@
 import UIKit
 
 class SplashViewController: UIViewController {
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var splashImage: UIView!
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViews()
         loadData()
-    }
-    
-    private func configureViews() {
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -25,15 +23,16 @@ class SplashViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
+    // MARK: - Private Functions
     private func loadData() {
         //Cuando la carga de datos alcanza el 90% vamos a la pantalla principal
         DataProvider.shared.loadCharacterObserver = { [weak self] progress in
-                print("\(progress * 100) %")
-                
+            print("\(progress * 100) %")
+            
             if progress >= 0.9 {
-                    self?.performSegue(withIdentifier: "FROM_SPLASH_TO_MAIN",
-                                       sender: nil)
-                }
+                self?.performSegue(withIdentifier: "FROM_SPLASH_TO_MAIN",
+                                   sender: nil)
+            }
         }
         
         // Load initial DATA

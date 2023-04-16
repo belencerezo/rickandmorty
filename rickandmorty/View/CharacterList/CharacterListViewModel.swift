@@ -31,7 +31,7 @@ class CharacterListViewModel: NSObject {
     
     // Lista de characters
     func getCharactersList() -> [CharacterEntity] {
-       return characters
+        return characters
     }
     
     func refreshNetworkData() {
@@ -45,6 +45,7 @@ class CharacterListViewModel: NSObject {
         self.delegate?.characterListViewModelDelegateRefresh()
     }
     
+    // MARK: - Core Data
     func getCharacters() -> [CharacterEntity] {
         let fetchRequest = NSFetchRequest<CharacterEntity>(entityName: "CharacterEntity")
         do {
@@ -66,7 +67,8 @@ class CharacterListViewModel: NSObject {
             print("Error saving context: \(error.localizedDescription)")
         }
     }
-
+    
+    // MARK: - UITableView
     func numberOfRowsInSection() -> Int {
         return characters.count
     }

@@ -10,6 +10,7 @@ import Kingfisher
 
 class CharacterTableViewCell: UITableViewCell {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var characterImageView: UIImageView!
     @IBOutlet weak var characterName: UILabel!
     @IBOutlet weak var characterGender: UILabel!
@@ -18,6 +19,7 @@ class CharacterTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
+    // MARK: - Methods
     func configureCell(character: CharacterEntity) {
         characterImageView.kf.setImage(with: URL(string: character.image ?? ""))
         characterName.text = character.name

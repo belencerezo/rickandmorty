@@ -14,8 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let _ = CoreDataStack.shared
-        // Load initial DATA
-        //DataProvider.shared.initData()
         return true
     }
 

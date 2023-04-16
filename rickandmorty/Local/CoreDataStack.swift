@@ -24,6 +24,7 @@ class CoreDataStack {
         return container
     }()
     
+    //Funcion para guardar los cambios realizados
     func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -34,5 +35,4 @@ class CoreDataStack {
             }
         }
     }
-    
 }

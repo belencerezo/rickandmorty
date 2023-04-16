@@ -7,8 +7,11 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class CharacterListViewModel: NSObject {
+    
+    // MARK: - Properties
     var dataSource: [AnyObject] = []
     var delegate: CharacterListViewModelDelegate?
     
@@ -20,12 +23,18 @@ class CharacterListViewModel: NSObject {
         self.delegate = delegate
     }
     
+    // MARK: - Methods
+    
     func viewDidLoad() {
         characters = getCharacters()
     }
     
+    // Lista de characters
+    func getCharactersList() -> [CharacterEntity] {
+       return characters
+    }
+    
     func refreshNetworkData() {
-        //self.characters = DataProvider.shared.defaultCharacter
         self.delegate?.characterListViewModelDelegateRefresh()
     }
     
@@ -37,9 +46,9 @@ class CharacterListViewModel: NSObject {
     }
     
     func getCharacters() -> [CharacterEntity] {
-        //characters = DataProvider.shared.defaultCharacter.sorted {($0.name ?? "") < ($1.name ?? "")}
         let fetchRequest = NSFetchRequest<CharacterEntity>(entityName: "CharacterEntity")
         do {
+            // Guarda los personajes en la lista
             characters = try context.fetch(fetchRequest)
             
         } catch {
@@ -51,6 +60,7 @@ class CharacterListViewModel: NSObject {
     
     private func saveContext() {
         do {
+            //Guarda los cambios en Core Data
             try context.save()
         } catch {
             print("Error saving context: \(error.localizedDescription)")
@@ -63,6 +73,8 @@ class CharacterListViewModel: NSObject {
     
     func objectAt(indexPath: IndexPath) -> CharacterEntity? {
         if characters.count > indexPath.row {
+            //Si hay personajes en la lista y fila solicitada
+            //Devuelve el objecto de personaje
             return characters[indexPath.row]
         }
         return nil

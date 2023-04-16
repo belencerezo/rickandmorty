@@ -26,7 +26,7 @@ class SplashViewController: UIViewController {
     }
     
     private func loadData() {
-        // Load initial DATA
+        //Cuando la carga de datos alcanza el 90% vamos a la pantalla principal
         DataProvider.shared.loadCharacterObserver = { [weak self] progress in
                 print("\(progress * 100) %")
                 
@@ -35,6 +35,8 @@ class SplashViewController: UIViewController {
                                        sender: nil)
                 }
         }
+        
+        // Load initial DATA
         DataProvider.shared.initData()
     }
 }

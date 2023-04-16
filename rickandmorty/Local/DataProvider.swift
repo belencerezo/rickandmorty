@@ -61,6 +61,7 @@ class DataProvider {
     // MARK: - SAVE CHARACTERS TO CORE DATA -
     
     private func saveCharacters() {
+<<<<<<< HEAD
         let context = CoreDataStack.shared.persistentContainer.viewContext
         context.perform {
             do {
@@ -78,6 +79,25 @@ class DataProvider {
                 try context.save()
             } catch {
                 print("Error saving characters to Core Data: \(error.localizedDescription)")
+=======
+            let context = CoreDataStack.shared.persistentContainer.viewContext
+            context.perform {
+                do {
+                    for character in self.defaultCharacter {
+                        let entity = CharacterEntity(context: context)
+                        entity.id = Int32(character.id ?? 0)
+                        entity.name = character.name
+                        entity.status = character.status
+                        entity.species = character.species
+                        entity.type = character.type
+                        entity.gender = character.gender
+                        entity.image = character.imageURL
+                    }
+                    
+                    try context.save()
+                } catch {
+                    print("Error saving characters to Core Data: \(error.localizedDescription)")
+>>>>>>> feature/unit-test
             }
         }
     }

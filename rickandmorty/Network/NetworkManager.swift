@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 // Se define la constante de la API de Rick and Morty
-
 let baseURL = "https://rickandmortyapi.com/api"
 
 // Constante que contiene la ruta para obtener un character especifico
@@ -25,14 +24,12 @@ enum ServiceResult {
 typealias ServiceCompletion = (_ result: ServiceResult) -> ()
 
 class ApiService {
-    
     static let shared = {
         ApiService()
     }()
     private init() {}
     
     // MARK: -Services-
-    
     //Funcion que obtiene informacion de un character a partir de su id
     func fetchCharacter(by id: String, completion: @escaping ServiceCompletion){
         let urlCharacterId = String.init(format: apiCharacterId,

@@ -23,17 +23,17 @@ class DataProvider {
     
     var defaultCharacter: [Character] = []
     
-    //************* LOAD JSON DATA ****************
+    // MARK: - LOAD JSON DATA -
     
     //Creamos un maximo de character
     private let characterMaxCount = 100
     //Analizamos por que numero de character va la lista
     var loadCharacterObserver: ((_ progress: Float) -> ())? = nil
     var loadCharacterCount = 0 {
-            didSet {
-                loadCharacterObserver?(Float(loadCharacterCount) / Float(characterMaxCount))
-            }
+        didSet {
+            loadCharacterObserver?(Float(loadCharacterCount) / Float(characterMaxCount))
         }
+    }
     
     func initData() {
         for id in 0...characterMaxCount {
@@ -58,26 +58,26 @@ class DataProvider {
         }
     }
     
-    //************* SAVE CHARACTERS TO CORE DATA ****************
+    // MARK: - SAVE CHARACTERS TO CORE DATA -
     
     private func saveCharacters() {
-            let context = CoreDataStack.shared.persistentContainer.viewContext
-            context.perform {
-                do {
-                    for character in self.defaultCharacter {
-                        let entity = CharacterEntity(context: context)
-                        entity.id = Int32(character.id ?? 0)
-                        entity.name = character.name
-                        entity.status = character.status
-                        entity.species = character.species
-                        entity.type = character.type
-                        entity.gender = character.gender
-                        entity.image = character.image
-                    }
-                    
-                    try context.save()
-                } catch {
-                    print("Error saving characters to Core Data: \(error.localizedDescription)")
+        let context = CoreDataStack.shared.persistentContainer.viewContext
+        context.perform {
+            do {
+                for character in self.defaultCharacter {
+                    let entity = CharacterEntity(context: context)
+                    entity.id = Int32(character.id ?? 0)
+                    entity.name = character.name
+                    entity.status = character.status
+                    entity.species = character.species
+                    entity.type = character.type
+                    entity.gender = character.gender
+                    entity.image = character.image
+                }
+                
+                try context.save()
+            } catch {
+                print("Error saving characters to Core Data: \(error.localizedDescription)")
             }
         }
     }

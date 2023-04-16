@@ -12,11 +12,11 @@ import XCTest
 class ImageTests: XCTestCase {
     
     var characterTest: Character?
-
+    
     override func setUp() {
         characterTest = Character(id: 1, name: "Sonia", status: "", species: "", type: "", gender: "", image: "")
     }
-
+    
     override func tearDown() {
         characterTest = nil
     }
@@ -24,7 +24,7 @@ class ImageTests: XCTestCase {
     func testImage() {
         // Given
         let expectedResult = "https://rickandmortyapi.com/api/character/avatar/66.jpeg"
-
+        
         // When
         let currentResult = characterTest?.imageURL
         

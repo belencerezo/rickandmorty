@@ -72,7 +72,7 @@ class DataProvider {
                         entity.species = character.species
                         entity.type = character.type
                         entity.gender = character.gender
-                        entity.image = character.image
+                        entity.image = character.imageURL
                     }
                     
                     try context.save()
